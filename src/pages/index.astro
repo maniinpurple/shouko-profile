@@ -2,58 +2,60 @@
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
+
 <BaseLayout title="Shouko">
-  <header class="w-full bg-white/90 border-b border-gray-200">
+  <!-- HEADER -->
+  <header class="w-full bg-white/90 border-b border-gray-200 backdrop-blur-sm sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <nav class="flex items-center gap-6">
-        <a class="nav-link" href="/">HOME</a>
-        <a class="nav-link" href="https://github.com/vedokoush" target="_blank">GITHUB</a>
-        <a class="nav-link" href="https://open.spotify.com/playlist/3JP1MKsCrTERak9FnQVYg8" target="_blank">SPOTIFY</a>
-        <a class="nav-link" href="https://discord.com/users/556789221810241537" target="_blank">DISCORD</a>
+      <nav class="flex items-center gap-6 text-sm font-semibold">
+        <a class="nav-link hover:text-shoukoPurpleDark transition" href="/">HOME</a>
+        <a class="nav-link hover:text-shoukoPurpleDark transition" href="https://github.com/vedokoush" target="_blank">GITHUB</a>
+        <a class="nav-link hover:text-shoukoPurpleDark transition" href="https://open.spotify.com/playlist/3JP1MKsCrTERak9FnQVYg8" target="_blank">SPOTIFY</a>
+        <a class="nav-link hover:text-shoukoPurpleDark transition" href="https://discord.com/users/556789221810241537" target="_blank">DISCORD</a>
       </nav>
 
-      <div class="flex items-center gap-3">
-        <input placeholder="Search" class="px-3 py-2 rounded-full border border-gray-200 text-sm bg-white/80" />
-        <button class="pill">POST</button>
-      </div>
-    </div>
+      <div class="text-sm text-gray-500"><strong>🌸 こんにちは、私は Shoukoです 🌸</strong></div>
   </header>
 
-  <!-- header banner -->
+  <!-- HEADER BANNER -->
   <div class="w-full bg-[url('/header.jpg')] bg-cover bg-center h-44 md:h-56 border-b border-gray-200"></div>
 
-  <main class="max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-12 gap-8">
-    <!-- left: sidebar -->
-    <aside class="md:col-span-4">
-      <div class="relative">
-        <!-- Avatar circle overlapping banner -->
-        <div class="absolute -top-16 left-8">
-          <div class="w-40 h-40 rounded-full overflow-hidden border-8 border-white shadow-xl">
-            <img src="/avatar.jpg" alt="avatar" class="w-full h-full object-cover" />
-          </div>
+  <!-- MAIN -->
+  <main class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-12 gap-10">
+    <!-- LEFT SIDEBAR -->
+    <aside class="md:col-span-4 relative">
+      <!-- Avatar -->
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 md:left-6 md:translate-x-0">
+        <div class="w-140 h-140 rounded-full overflow-hidden border-[8px] border-white shadow-lg">
+          <img src="/avatar.jpg" alt="avatar" class="w-full h-full object-cover" />
         </div>
-        <!-- spacer to push content down -->
-        <div class="h-20"></div>
       </div>
 
-      <div class="profile-card mt-10">
-        <h2 class="text-2xl text-shoukoPurpleDark">Shouko</h2>
-        <p class="text-sm text-gray-500 mt-1">@vedokoush</p>
+      <!-- Spacer to push profile card down -->
+      <div class="h-44"></div>
 
-        <p class="mt-4 text-sm leading-relaxed text-gray-700">
+      <!-- Profile Card -->
+      <div class="profile-card mt-10">
+        <h2 class="text-2xl text-shoukoPurpleDark font-bold"><strong>Shouko</strong></h2>
+        <p class="text-sm text-gray-500">@vedokoush</p>
+
+        <p class="mt-4 text-sm text-gray-700 leading-relaxed">
           Reina | Female | Gemini | INFP | Ravenclaw<br />
           Obsessed with Granblue Fantasy, IDOLiSH7, and Love Live! Hungry 24/7.
         </p>
 
         <div class="mt-6 border-t pt-4">
-          <div class="text-sm font-semibold text-shoukoPurpleDark mb-2">Layout</div>
-          <p class="text-sm text-gray-600">This layout features Narmaya from Granblue Fantasy. A mix of Tumblr/Twitter style.</p>
+          <p class="text-sm font-semibold text-shoukoPurpleDark mb-1">Layout</p>
+          <p class="text-sm text-gray-600">
+            This layout features Narmaya from Granblue Fantasy — a cozy Tumblr/Twitter-style blend.
+          </p>
         </div>
       </div>
 
+      <!-- Friends -->
       <div class="profile-card mt-6">
         <h3 class="font-semibold text-shoukoPurpleDark">Best Friends</h3>
-        <ul class="mt-3 text-sm space-y-2 text-gray-700">
+        <ul class="mt-3 text-sm text-gray-700 space-y-1">
           <li>Yuyu @Omikami</li>
           <li>Boonen @Bunnyama</li>
           <li>Nanago @_Nagisa</li>
@@ -61,6 +63,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </ul>
       </div>
 
+      <!-- Tags -->
       <div class="profile-card mt-6">
         <h3 class="font-semibold text-shoukoPurpleDark">Current Obsessions</h3>
         <ul class="mt-3 text-sm text-gray-700 space-y-1">
@@ -71,53 +74,64 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </aside>
 
-    <!-- right: main content -->
+    <!-- RIGHT CONTENT -->
     <section class="md:col-span-8">
-      <!-- tabs -->
-      <div class="flex items-center gap-6 mb-6 border-b border-gray-200 pb-4">
-        <button class="text-sm font-semibold text-shoukoPurpleDark border-b-2 border-shoukoPurpleDark pb-1">POSTS</button>
-        <button class="text-sm text-gray-500">POSTS & REPLIES</button>
-        <button class="text-sm text-gray-500">ANIME LIST</button>
-        <button class="text-sm text-gray-500">ABOUT</button>
+      <!-- Tabs -->
+      <div class="flex items-center gap-6 mb-6 border-b border-gray-200 pb-3 text-sm font-semibold">
+        <button class="tab-active">ABOUT</button>
+        <button class="tab">POSTS & REPLIES</button>
+        <button class="tab">DEVICES</button>
       </div>
 
-      <!-- about card -->
-      <div class="profile-card">
-        <h3 class="text-lg font-bold text-shoukoPurpleDark">:: about me</h3>
-        <p class="mt-3 text-gray-700 leading-relaxed">
-          Hello! My name is Rini but feel free to call me whatever you like. I’m an introvert who prefers indoor activities such as watching anime, playing video games, and reading manga.
-        </p>
-      </div>
+    <!-- About Card (raw JSON) -->
+    <div class="profile-card">
+      <h3 class="text-lg font-bold text-shoukoPurpleDark">:: about me</h3>
 
-      <!-- list of post cards -->
-      <div class="mt-6 space-y-4">
-        <article class="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+      <pre class="mt-3 overflow-auto text-sm bg-gray-50 p-4 rounded-md border">
+    {`const ME = {
+      aliases: ["shouko", "ookami"],
+      pronouns: ["he/him"],
+      location: "Vietnam",
+      OS: ["Arch Linux", "MacOS"],
+      languages: [
+        "python","cpp","javascript","csharp","golang","typescript","java"
+      ],
+      programming: {
+        backend: ["go","flask","nodejs"],
+        frontend: ["html","css","vue","tailwindcss"],
+        databases: ["mysql"],
+        technologies: ["docker","nginx"]
+      },
+      tricks: ["sqli","mitm","ddos"],
+      editing_software: ["after effects","premiere pro","blender","borisfx","redgiant"],
+    };`}
+      </pre>
+    </div>
+
+
+      <!-- Post Cards -->
+      <div class="mt-6 space-y-5">
+        <article class="post-card hover:shadow-md transition">
           <div class="flex items-start gap-4">
-            <div class="w-20 h-20 rounded-lg overflow-hidden">
-              <img src="/card1.jpg" alt="" class="w-full h-full object-cover" />
-            </div>
+            <img src="/card1.jpg" alt="" class="w-24 h-24 rounded-lg object-cover border" />
             <div class="flex-1">
-              <h4 class="font-semibold text-shoukoPurpleDark">JEANNE D'ARC</h4>
+              <h4 class="font-semibold text-shoukoPurpleDark text-base">JEANNE D'ARC</h4>
               <p class="text-sm text-gray-600 mt-1">Element: Dark | Race: Human | Style: Attack</p>
             </div>
-            <div class="text-sm text-gray-400">1200</div>
+            <div class="text-xs text-gray-400">1200</div>
           </div>
         </article>
 
-        <article class="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+        <article class="post-card hover:shadow-md transition">
           <div class="flex items-start gap-4">
-            <div class="w-20 h-20 rounded-lg overflow-hidden">
-              <img src="/card2.jpg" alt="" class="w-full h-full object-cover" />
-            </div>
+            <img src="/card2.jpg" alt="" class="w-24 h-24 rounded-lg object-cover border" />
             <div class="flex-1">
-              <h4 class="font-semibold text-shoukoPurpleDark">ZOOEY</h4>
+              <h4 class="font-semibold text-shoukoPurpleDark text-base">ZOOEY</h4>
               <p class="text-sm text-gray-600 mt-1">Race: Primal | Specialty: Saber</p>
             </div>
-            <div class="text-sm text-gray-400">1180</div>
+            <div class="text-xs text-gray-400">1180</div>
           </div>
         </article>
-
-        <!-- add more cards similarly -->
       </div>
     </section>
   </main>

@@ -2,25 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom base */
+/* -------------------------------
+   🌸 Base Layer
+--------------------------------*/
 @layer base {
-  html,body,#root {
+  html, body, #root {
     height: 100%;
   }
+
   body {
     @apply bg-shoukoBg text-gray-800 antialiased;
     font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   }
-  h1,h2,h3,h4 { font-weight: 700; }
+
+  h1, h2, h3, h4 {
+    font-weight: 700;
+  }
 }
 
-/* Small helpers */
-.profile-card {
-  @apply bg-white/90 rounded-2xl p-6 border border-gray-100 shadow-sm;
-}
-.nav-link {
-  @apply text-sm font-medium text-gray-600 hover:text-shoukoPurpleDark transition-colors;
-}
-.pill {
-  @apply text-sm text-shoukoPurpleDark bg-white/60 px-3 py-1 rounded-full border border-gray-200;
+/* -------------------------------
+   🌿 Components
+--------------------------------*/
+@layer components {
+  /* Card styles */
+  .profile-card {
+    @apply bg-white/90 border border-gray-100 rounded-2xl shadow-sm p-6 backdrop-blur-sm transition hover:shadow-md;
+  }
+
+  .post-card {
+    @apply bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition;
+  }
+
+  /* Navigation link */
+  .nav-link {
+    @apply text-sm font-medium text-gray-600 hover:text-shoukoPurpleDark transition-colors duration-200;
+  }
+
+  /* Pills (tags, labels) */
+  .pill {
+    @apply inline-block px-4 py-2 bg-shoukoPurple text-white rounded-full text-sm font-semibold tracking-wide shadow-sm hover:opacity-90 transition;
+  }
+
+  /* Tabs */
+  .tab {
+    @apply text-sm text-gray-500 hover:text-shoukoPurpleDark transition-colors duration-200;
+  }
+
+  .tab-active {
+    @apply text-shoukoPurpleDark border-b-2 border-shoukoPurpleDark pb-1 font-semibold;
+  }
 }
