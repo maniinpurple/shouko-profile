@@ -1,14 +1,17 @@
 {
   "name": "shouko-profile",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro preview"
   },
-  "dependencies": {
-    "astro": "^5.14.4"
+  "devDependencies": {
+    "astro": "^5.14.4",
+    "tailwindcss": "^3.4.10",
+    "postcss": "^8.4.30",
+    "autoprefixer": "^10.4.14",
+    "@astrojs/tailwind": "^6.0.2"
   }
 }
