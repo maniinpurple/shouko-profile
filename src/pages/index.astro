@@ -34,44 +34,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- Spacer to push profile card down -->
       <div class="h-44"></div>
 
-      <!-- Profile Card -->
-      <div class="profile-card mt-10">
-        <h2 class="text-2xl text-shoukoPurpleDark font-bold"><strong>Shouko</strong></h2>
+      <!-- Introduce -->
+      <div class="introduce text-center md:text-left px-2 md:px-0">
+        <h2 class="text-3xl font-bold text-shoukoPurpleDark">Shouko</h2>
         <p class="text-sm text-gray-500">@vedokoush</p>
 
-        <p class="mt-4 text-sm text-gray-700 leading-relaxed">
-          Reina | Female | Gemini | INFP | Ravenclaw<br />
-          Obsessed with Granblue Fantasy, IDOLiSH7, and Love Live! Hungry 24/7.
+        <p class="mt-3 text-sm text-gray-700 leading-relaxed">
+          wassup! aka thaitrung irl - croissant 🥐
         </p>
-
-        <div class="mt-6 border-t pt-4">
-          <p class="text-sm font-semibold text-shoukoPurpleDark mb-1">Layout</p>
-          <p class="text-sm text-gray-600">
-            This layout features Narmaya from Granblue Fantasy — a cozy Tumblr/Twitter-style blend.
-          </p>
-        </div>
       </div>
 
-      <!-- Friends -->
-      <div class="profile-card mt-6">
-        <h3 class="font-semibold text-shoukoPurpleDark">Best Friends</h3>
-        <ul class="mt-3 text-sm text-gray-700 space-y-1">
-          <li>Yuyu @Omikami</li>
-          <li>Boonen @Bunnyama</li>
-          <li>Nanago @_Nagisa</li>
-          <li>Merlo @Dechromario</li>
-        </ul>
+
+      <!-- Profile Card -->
+      <div class="profile-card mt-10">
+        <p class="text-sm font-semibold text-shoukoPurpleDark mb-1">Hobbies</p>
+        <p class="text-sm text-gray-600">
+          - Anime Lover
+          - 
+        </p>
       </div>
 
-      <!-- Tags -->
-      <div class="profile-card mt-6">
-        <h3 class="font-semibold text-shoukoPurpleDark">Current Obsessions</h3>
-        <ul class="mt-3 text-sm text-gray-700 space-y-1">
-          <li>#GranblueFantasy</li>
-          <li>#IDOLiSH7</li>
-          <li>#LoveLive</li>
-        </ul>
-      </div>
     </aside>
 
     <!-- RIGHT CONTENT -->
@@ -79,13 +61,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- Tabs -->
       <div class="flex items-center gap-6 mb-6 border-b border-gray-200 pb-3 text-sm font-semibold">
         <button class="tab-active">ABOUT</button>
-        <button class="tab">POSTS & REPLIES</button>
+        <button class="tab">POSTS</button>
+        <button class="tab">PROJECT</button>
         <button class="tab">DEVICES</button>
       </div>
 
     <!-- About Card (raw JSON) -->
     <div class="profile-card">
-      <h3 class="text-lg font-bold text-shoukoPurpleDark">:: about me</h3>
+      <h3 class="text-2xl font-bold text-shoukoPurpleDark"><strong>:: about me</strong></h3>
 
       <pre class="mt-3 overflow-auto text-sm bg-gray-50 p-4 rounded-md border">
     {`const ME = {

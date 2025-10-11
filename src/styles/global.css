@@ -24,13 +24,40 @@
    🌿 Components
 --------------------------------*/
 @layer components {
-  /* Card styles */
+  .introduce {
+    @apply text-gray-700 mt-2 mb-4 ml-4;
+  }
+
+  .introduce h2 {
+    @apply text-shoukoPurpleDark font-bold tracking-wide;
+  }
+
+  .introduce p {
+    @apply leading-relaxed;
+  }
+
+  aside {
+    position: relative;
+  }
+
+  aside .introduce {
+    margin-top: 4.5rem; 
+  }
+
+  aside .avatar-wrapper {
+    @apply absolute -top-24 left-1/2 -translate-x-1/2 md:left-6 md:translate-x-0;
+  }
+
+  .avatar-wrapper img {
+    @apply rounded-full border-[8px] border-white shadow-lg object-cover;
+  }
+
   .profile-card {
-    @apply bg-white/90 border border-gray-100 rounded-2xl shadow-sm p-6 backdrop-blur-sm transition hover:shadow-md;
+    @apply bg-white/90 border border-gray-100 rounded shadow-sm p-5 backdrop-blur-sm transition hover:shadow-md;
   }
 
   .post-card {
-    @apply bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition;
+    @apply bg-white border border-gray-100 rounded p-5 shadow-sm hover:shadow-md transition;
   }
 
   /* Navigation link */
