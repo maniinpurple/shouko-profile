@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* -------------------------------
-   🌸 Base Layer
---------------------------------*/
 @layer base {
   html, body, #root {
     height: 100%;
@@ -13,6 +10,7 @@
   body {
     @apply bg-shoukoBg text-gray-800 antialiased;
     font-family: Georgia, jetbrians-mono,; 
+    zoom: 1.3;
   }
 
   h1, h2, h3, h4 {
@@ -20,9 +18,6 @@
   }
 }
 
-/* -------------------------------
-   🌿 Components
---------------------------------*/
 @layer components {
   .introduce {
     @apply text-gray-700 mt-2 mb-4 ml-4;
@@ -44,14 +39,22 @@
     margin-top: 4.5rem; 
   }
 
-  aside .avatar-wrapper {
+
+  .avatar-wrapper {
     @apply absolute -top-24 left-1/2 -translate-x-1/2 md:left-6 md:translate-x-0;
+    perspective: 1000px;
   }
 
   .avatar-wrapper img {
     @apply rounded-full border-[8px] border-white shadow-lg object-cover;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    transform-style: preserve-3d;
   }
 
+  .avatar-wrapper img:hover {
+    box-shadow: 0 10px 25px rgba(9, 255, 0, 0.15);
+  }
   .profile-card {
     @apply bg-white/90 border border-gray-100 rounded-2xl shadow-sm p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-md hover:-translate-y-[2px];
   }
@@ -102,6 +105,26 @@
   }
 }
 
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-shadow-md {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .text-glow-purple {
+    text-shadow: 
+      0 0 10px rgba(127, 95, 184, 0.3),
+      0 0 20px rgba(127, 95, 184, 0.2),
+      0 0 30px rgba(127, 95, 184, 0.1);
+  }
+}
 
 @keyframes slideDown {
   from {
