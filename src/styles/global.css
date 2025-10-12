@@ -8,12 +8,31 @@
   }
 
   body {
-    @apply bg-shoukoBg text-gray-800 antialiased;
-    font-family: Georgia, jetbrians-mono;
+    @apply bg-shoukoBg dark:bg-shoukoDarkBg text-gray-800 dark:text-shoukoDarkText antialiased;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4 {
     font-weight: 700;
+    @apply dark:text-shoukoDarkText;
+  }
+
+  h1 {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+
+  h4 {
+    @apply text-lg sm:text-xl lg:text-2xl;
   }
 }
 
@@ -67,12 +86,17 @@
     box-shadow: 0 10px 25px rgba(9, 255, 0, 0.15);
   }
   .profile-card {
-    @apply bg-white/90 border border-gray-100 rounded-2xl shadow-sm p-4 sm:p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-md hover:-translate-y-[2px];
+    @apply bg-white/90 dark:bg-shoukoDarkCard border border-gray-100 dark:border-shoukoDarkBorder 
+           rounded-2xl shadow-lg dark:shadow-2xl p-4 sm:p-6 backdrop-blur-sm 
+           transition-all duration-300 hover:shadow-md hover:-translate-y-[2px]
+           dark:hover:bg-shoukoDarkCardHover;
   }
 
   .post-card {
-    @apply bg-white/90 border border-gray-100 rounded-2xl p-4 sm:p-6 shadow-sm 
-          hover:shadow-xl hover:-translate-y-[3px] transition-all duration-300;
+    @apply bg-white/90 dark:bg-shoukoDarkCard border border-gray-100 dark:border-shoukoDarkBorder 
+           rounded-2xl p-4 sm:p-6 shadow-lg dark:shadow-2xl 
+          hover:shadow-xl hover:-translate-y-[3px] transition-all duration-300
+          dark:hover:bg-shoukoDarkCardHover;
   }
 
   .post-card img {
@@ -84,15 +108,16 @@
   }
 
   .post-card p {
-    @apply text-sm sm:text-base text-gray-600 mt-2;
+    @apply text-sm sm:text-base text-gray-600 dark:text-shoukoDarkTextSecondary mt-2;
   }
 
   .post-card .text-xs {
-    @apply text-sm text-gray-400 font-medium;
+    @apply text-sm text-gray-400 dark:text-shoukoDarkTextMuted font-medium;
   }
 
   .nav-link {
-    @apply text-sm font-medium text-gray-600 hover:text-shoukoPurpleDark transition-colors duration-200;
+    @apply text-sm font-medium text-gray-600 dark:text-shoukoDarkTextSecondary 
+           hover:text-shoukoPurpleDark dark:hover:text-shoukoDarkAccent transition-colors duration-200;
   }
 
   .pill {
@@ -100,15 +125,18 @@
   }
 
   .tab-bar {
-    @apply flex flex-wrap items-center gap-2 sm:gap-3 p-2 bg-white/70 backdrop-blur-sm border border-gray-100 rounded-t-xl shadow-sm;
+    @apply flex flex-wrap items-center gap-2 sm:gap-3 p-2 bg-white/70 dark:bg-shoukoDarkCard 
+           backdrop-blur-sm border border-gray-100 dark:border-shoukoDarkBorder 
+           rounded-t-xl shadow-lg dark:shadow-2xl;
   }
 
   .tab-item {
-    @apply px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold text-gray-600 transition-colors duration-200;
+    @apply px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold 
+           text-gray-600 dark:text-shoukoDarkTextSecondary transition-colors duration-200;
   }
 
   .tab-item:hover {
-    @apply bg-shoukoPurple/10 text-shoukoPurpleDark;
+    @apply bg-shoukoPurple/10 dark:bg-shoukoDarkAccent/20 text-shoukoPurpleDark dark:text-shoukoDarkAccent;
   }
 
   .tab-active {
@@ -144,6 +172,35 @@
   /* Grid responsive utilities */
   .grid-responsive {
     @apply grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 lg:gap-8;
+  }
+
+  /* Syntax highlighting utilities */
+  .syntax-key {
+    @apply text-shoukoDarkBlue dark:text-shoukoDarkBlue;
+  }
+
+  .syntax-string {
+    @apply text-shoukoDarkGreen dark:text-shoukoDarkGreen;
+  }
+
+  .syntax-number {
+    @apply text-shoukoDarkYellow dark:text-shoukoDarkYellow;
+  }
+
+  .syntax-type {
+    @apply text-shoukoDarkCyan dark:text-shoukoDarkCyan;
+  }
+
+  .syntax-comment {
+    @apply text-shoukoDarkTextMuted dark:text-shoukoDarkTextMuted italic;
+  }
+
+  .syntax-bracket {
+    @apply text-shoukoDarkText dark:text-shoukoDarkText;
+  }
+
+  .syntax-accent {
+    @apply text-shoukoDarkAccent dark:text-shoukoDarkAccent;
   }
 }
 
