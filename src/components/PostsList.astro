@@ -1,0 +1,87 @@
+---
+import { getCollection } from 'astro:content';
+
+function readingTime(content: string) {
+  const words = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(words / 200);
+  return { words, minutes };
+}
+
+const postsRaw = await getCollection('posts');
+const posts = await Promise.all(
+  postsRaw
+    .filter((post: any) => !post.data.tags?.includes('project'))
+    .sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .map(async (post: any) => {
+      const { words, minutes } = readingTime(post.body);
+      return {
+        slug: post.slug,
+        title: post.data.title,
+        description: post.data.description,
+        pubDate: post.data.pubDate,
+        tags: post.data.tags,
+        words,
+        minutes,
+      };
+    })
+);
+---
+
+<div class="mb-10">
+  <h3 class="text-2xl font-bold text-shoukoPurpleDark mb-2"><strong>:: posts</strong></h3>
+  <p class="text-sm text-gray-600 mt-3 mb-8">
+    Take a seat, grab a cup of coffee — I've got some stories, reviews, and projects I'd love to share with you.
+  </p>
+
+  <div class="space-y-6">
+    {posts.map(post => (
+      <article class="post-card">
+        <a href={`/posts/${post.slug}`}>
+          <h4 class="font-bold text-lg text-shoukoPurpleDark mb-3 hover:underline">
+            {post.title}
+          </h4>
+        </a>
+        <div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
+          <span class="flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            {post.pubDate.toLocaleDateString('en-US', {
+              weekday: 'short',
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric'
+            })}
+          </span>
+          <span class="flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
+            {post.words} words
+          </span>
+          <span class="flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            {post.minutes} min(s) to read
+          </span>
+        </div>
+        {post.tags && (
+          <div class="mb-3 flex gap-2">
+            {post.tags.map((tag: string) => (
+              <span class="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+        <p class="text-sm text-gray-600">{post.description}</p>
+      </article>
+    ))}
+  </div>
+</div>
