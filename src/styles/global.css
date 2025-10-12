@@ -117,7 +117,7 @@
 
   .nav-link {
     @apply text-sm font-medium text-gray-600 dark:text-shoukoDarkTextSecondary 
-           hover:text-shoukoPurpleDark dark:hover:text-shoukoDarkAccent transition-colors duration-200;
+           hover:text-shoukoPurpleDark dark:hover:text-shoukoDarkPurple transition-colors duration-200;
   }
 
   .pill {
@@ -136,7 +136,7 @@
   }
 
   .tab-item:hover {
-    @apply bg-shoukoPurple/10 dark:bg-shoukoDarkAccent/20 text-shoukoPurpleDark dark:text-shoukoDarkAccent;
+    @apply bg-shoukoPurple/10 dark:bg-shoukoDarkPurple/20 text-shoukoPurpleDark dark:text-shoukoDarkPurple;
   }
 
   .tab-active {

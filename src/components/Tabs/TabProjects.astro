@@ -28,23 +28,23 @@ const projects = await Promise.all(
 ---
 
 <div class="fade-in-fast mb-10">
-<h3 class="text-2xl font-bold text-shoukoPurpleDark mb-2"><strong>:: projects</strong></h3>
-<p class="text-sm text-gray-600 mt-3 mb-8">
+<h3 class="text-2xl font-bold text-shoukoPurpleDark dark:text-shoukoDarkText mb-2"><strong>:: projects</strong></h3>
+<p class="text-sm text-gray-600 dark:text-shoukoDarkTextSecondary mt-3 mb-8">
 	A collection of little creations — built with curiosity, caffeine, and a quiet wish to make something that feels alive.
 </p>
 
 <div class="space-y-6">
 	{projects.length === 0 && (
-		<p class="text-gray-500">No projects found. Add posts with the <code>project</code> tag to show them here.</p>
+		<p class="text-gray-500 dark:text-shoukoDarkTextSecondary">No projects found. Add posts with the <code class="bg-gray-100 dark:bg-shoukoDarkBorder px-1 rounded">project</code> tag to show them here.</p>
 	)}
 	{projects.map(project => (
 		<article class="fade-up post-card">
 			<a href={`/posts/${project.slug}`}>
-				<h4 class="font-bold text-lg text-shoukoPurpleDark mb-3 hover:underline">
+				<h4 class="font-bold text-lg text-shoukoPurpleDark dark:text-shoukoDarkText mb-3 hover:underline">
 					{project.title}
 				</h4>
 			</a>
-			<div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
+			<div class="flex items-center gap-4 text-xs text-gray-500 dark:text-shoukoDarkTextMuted mb-3">
 				<span class="flex items-center gap-1">
 					<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 						<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -77,13 +77,13 @@ const projects = await Promise.all(
 			{project.tags && (
 				<div class="mb-3 flex gap-2">
 					{project.tags.map((tag: string) => (
-						<span class="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+						<span class="inline-block px-3 py-1 bg-gray-100 dark:bg-shoukoDarkBorder text-gray-700 dark:text-shoukoDarkTextSecondary text-xs rounded-full">
 							{tag}
 						</span>
 					))}
 				</div>
 			)}
-			<p class="text-sm text-gray-600">{project.description}</p>
+			<p class="text-sm text-gray-600 dark:text-shoukoDarkTextSecondary">{project.description}</p>
 		</article>
 	))}
 </div>
