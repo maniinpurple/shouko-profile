@@ -1,80 +1,40 @@
 ---
 import LeVanThiem from './Resume/lvt.astro';
 import ChuyenHaTinh from './Resume/cht.astro';
+import Networking from './Resume/networking.astro';
+import Development from './Resume/dev.astro';
+import ComperativeProgramming from './Resume/cp.astro';
+
 ---
 
-<div class="mb-10">
-  <div class="flex items-center gap-3 mb-6">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-      <polyline points="14 2 14 8 20 8"></polyline>
-    </svg>
-    <h2 class="text-xl font-bold text-gray-800">Education</h2>
-  </div>
-
-  <LeVanThiem />
-  <ChuyenHaTinh />
-</div>
-
-<div class="mb-10">
-  <div class="flex items-center gap-3 mb-6">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
-      <polyline points="17 2 12 7 7 2"></polyline>
-    </svg>
-    <h2 class="text-xl font-bold text-gray-800">Experience</h2>
-  </div>
-
-  <!-- Video Editing & Motion Graphics -->
-  <div class="mb-6">
-    <div class="flex items-start gap-3">
-      <div class="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-        <div class="flex-1">
-            <h3 class="font-semibold text-base text-gray-800 mb-1">Video Editing & Motion Graphics</h3>
-            <p class="text-sm text-yellow-600 mb-2">2020 — Present</p>
-            <p class="text-sm text-gray-600">I create AMVs, 3D text animations, and motion graphics using After Effects, Blender, Premiere Pro, BorisFX, and Red Giant plugins. I combine creativity with technical precision to deliver visually dynamic projects.</p>
-        </div>
+<div class="fade-in-fast">
+  <h3 class="text-2xl font-bold text-shoukoPurpleDark mb-2"><strong>:: resume</strong></h3>
+  <p class="text-sm text-gray-600 mt-3 mb-8">My growing-up journal book.</p>
+  <div class="mb-10">
+    <div class="flex items-center gap-3 mb-6">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+      </svg>
+      <h2 class="text-xl font-bold text-gray-800">Education</h2>
     </div>
+
+    <LeVanThiem />
+    <ChuyenHaTinh />
   </div>
 
-  <!-- Competitive Programming -->
-  <div class="mb-6">
-    <div class="flex items-start gap-3">
-      <div class="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-      <div class="flex-1">
-        <h3 class="font-semibold text-base text-gray-800 mb-1">Competitive Programming</h3>
-        <p class="text-sm text-yellow-600 mb-2">2022 — Present</p>
-        <p class="text-sm text-gray-600 mb-1">I’ve been participating in competitive programming since middle school, solving challenging algorithmic problems and earning awards in national and city-level contests.</p>
-        <p class="text-sm text-gray-600 mb-1">I also create programming contests for students to practice and improve their skills.</p>
-      </div>
+  <div class="mb-10">
+    <div class="flex items-center gap-3 mb-6">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+        <polyline points="17 2 12 7 7 2"></polyline>
+      </svg>
+      <h2 class="text-xl font-bold text-gray-800">Experience</h2>
     </div>
-  </div>
 
-  <!-- Back-End & Web Development -->
-  <div class="mb-6">
-    <div class="flex items-start gap-3">
-      <div class="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-      <div class="flex-1">
-        <h3 class="font-semibold text-base text-gray-800 mb-1">Back-End & Web Development</h3>
-        <p class="text-sm text-yellow-600 mb-2">2024 — Present</p>
-        <p class="text-sm text-gray-600 mb-1">I’ve built web applications using Node.js, Go, Flask, and TailwindCSS. My focus is on responsive UI, interactive features, and creating platforms that improve learning and coding practice for students.</p>
-        <p class="text-sm text-gray-600">Technologies I use include Docker, Nginx, MySQL, and modern JS/TS frameworks.</p>
-      </div>
-    </div>
-  </div>
+    <Networking />
+    <Development />
+    <ComperativeProgramming />
 
-
-
-  <!-- Networking & Security -->
-  <div class="mb-6">
-    <div class="flex items-start gap-3">
-      <div class="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-      <div class="flex-1">
-        <h3 class="font-semibold text-base text-gray-800 mb-1">Networking & Security</h3>
-        <p class="text-sm text-yellow-600 mb-2">2025 — Present</p>
-        <p class="text-sm text-gray-600">Experimenting with home servers, cloud setups, and basic cybersecurity concepts. I’ve deployed servers for media, Minecraft, and small web services, learning practical networking and system management.</p>
-      </div>
-    </div>
   </div>
 </div>
-
