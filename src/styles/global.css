@@ -53,29 +53,51 @@
   }
 
   .profile-card {
-    @apply bg-white/90 border border-gray-100 rounded shadow-sm p-5 backdrop-blur-sm transition hover:shadow-md;
+    @apply bg-white/90 border border-gray-100 rounded-2xl shadow-sm p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-md hover:-translate-y-[2px];
   }
 
   .post-card {
-    @apply bg-white border border-gray-100 rounded p-5 shadow-sm hover:shadow-md transition;
+    @apply bg-white/90 border border-gray-100 rounded-2xl p-6 shadow-sm 
+          hover:shadow-xl hover:-translate-y-[3px] transition-all duration-300;
   }
 
-  /* Navigation link */
+  .post-card img {
+    @apply w-32 h-32 rounded-xl object-cover border border-gray-200 shadow-sm;
+  }
+
+  .post-card h4 {
+    @apply font-semibold text-shoukoPurpleDark text-lg;
+  }
+
+  .post-card p {
+    @apply text-base text-gray-600 mt-2;
+  }
+
+  .post-card .text-xs {
+    @apply text-sm text-gray-400 font-medium;
+  }
+
   .nav-link {
     @apply text-sm font-medium text-gray-600 hover:text-shoukoPurpleDark transition-colors duration-200;
   }
 
-  /* Pills (tags, labels) */
   .pill {
     @apply inline-block px-4 py-2 bg-shoukoPurple text-white rounded-full text-sm font-semibold tracking-wide shadow-sm hover:opacity-90 transition;
   }
 
-  /* Tabs */
-  .tab {
-    @apply text-sm text-gray-500 hover:text-shoukoPurpleDark transition-colors duration-200;
+  .tab-bar {
+    @apply flex items-center gap-3 p-2 bg-white/70 backdrop-blur-sm border border-gray-100 rounded-t-xl shadow-sm;
+  }
+
+  .tab-item {
+    @apply px-4 py-2 rounded-lg text-sm font-semibold text-gray-600 transition-colors duration-200;
+  }
+
+  .tab-item:hover {
+    @apply bg-shoukoPurple/10 text-shoukoPurpleDark;
   }
 
   .tab-active {
-    @apply text-shoukoPurpleDark border-b-2 border-shoukoPurpleDark pb-1 font-semibold;
+    @apply bg-shoukoPurpleDark text-white shadow-sm;
   }
 }

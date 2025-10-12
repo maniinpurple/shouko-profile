@@ -1,0 +1,44 @@
+---
+import TabAbout from './Tabs/TabAbout.astro'
+import TabPosts from './Tabs/TabPosts.astro'
+import TabProjects from './Tabs/TabProjects.astro'
+import TabDevices from './Tabs/TabDevices.astro'
+import TabResume from './Tabs/TabResume.astro'
+---
+
+<div x-data="{ activeTab: 'about' }" class="w-full">
+  <div class="tab-bar mb-0">
+    <button 
+      @click="activeTab = 'about'"
+      :class="activeTab === 'about' ? 'tab-item tab-active' : 'tab-item'"
+    >ABOUT</button>
+
+    <button 
+      @click="activeTab = 'posts'"
+      :class="activeTab === 'posts' ? 'tab-item tab-active' : 'tab-item'"
+    >POSTS</button>
+
+    <button 
+      @click="activeTab = 'project'"
+      :class="activeTab === 'project' ? 'tab-item tab-active' : 'tab-item'"
+    >PROJECTS</button>
+
+    <button 
+      @click="activeTab = 'resume'"
+      :class="activeTab === 'resume' ? 'tab-item tab-active' : 'tab-item'"
+    >RESUME</button>
+
+    <button 
+      @click="activeTab = 'devices'"
+      :class="activeTab === 'devices' ? 'tab-item tab-active' : 'tab-item'"
+    >DEVICES</button>
+  </div>
+
+  <div class="profile-card rounded-t-none">
+    <div x-show="activeTab === 'about'"><TabAbout /></div>
+    <div x-show="activeTab === 'posts'"><TabPosts /></div>
+    <div x-show="activeTab === 'project'"><TabProjects /></div>
+    <div x-show="activeTab === 'devices'"><TabDevices /></div>
+    <div x-show="activeTab === 'resume'"><TabResume /></div>
+  </div>
+</div>
