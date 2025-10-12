@@ -22,7 +22,7 @@ module.exports = {
         
         shoukoDarkBg: '#1e1e2e',
         shoukoDarkCard: '#24283B',
-        shoukoDarkCardHover: '#2D2E3A',
+        shoukoDarkCardHover: '#1e1e2e',
         shoukoDarkBorder: '#3B4261', 
         
 

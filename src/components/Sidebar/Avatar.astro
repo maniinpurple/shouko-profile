@@ -1,52 +1,48 @@
 <div class="left-to-right absolute -top-40 -left-10">
-  <div id="avatar-container" class="w-[380px] h-[380px] rounded-full overflow-hidden border-[8px] border-white shadow-2xl transition-shadow duration-200" style="transform-style: preserve-3d; cursor: pointer; will-change: transform;">
+  <div id="avatar-container" class="w-[380px] h-[380px] rounded-full overflow-hidden border-[8px] border-white dark:border-yellow-400 shadow-2xl dark:shadow-yellow-400/50 transition-all duration-200" style="transform-style: preserve-3d; cursor: pointer; will-change: transform;">
     <img src="/avatar.jpg" alt="avatar" class="w-full h-full object-cover" />
   </div>
 </div>
 
+
 <script>
-  const container = document.getElementById('avatar-container');
-  let ticking = false;
-  let isPressed = false;
-  
-  if (container) {
-    function updateTransform(x, y, scale = 0.95) {
-      const rect = container.getBoundingClientRect();
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = ((y - rect.top - centerY) / 25);
-      const rotateY = ((centerX - (x - rect.left)) / 25);
-      
-      container.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
-    }
-    
-    container.addEventListener('mousemove', (e) => {
-      if (!ticking && !isPressed) {
-        window.requestAnimationFrame(() => {
-          updateTransform(e.clientX, e.clientY);
-          container.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.2)';
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
-    
-    container.addEventListener('mouseleave', () => {
-      container.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-      container.style.boxShadow = '';
-      isPressed = false;
-    });
-    
-    container.addEventListener('mousedown', () => {
-      isPressed = true;
-      container.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(0.88)';
-      container.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.25)';
-    });
-    
-    container.addEventListener('mouseup', (e) => {
-      isPressed = false;
-      updateTransform(e.clientX, e.clientY, 0.95);
-    });
+const container = document.getElementById('avatar-container');
+let ticking = false;
+let isPressed = false;
+
+if (container) {
+  function updateTransform(x, y, scale = 0.95) {
+    const rect = container.getBoundingClientRect();
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - rect.top - centerY) / 25);
+    const rotateY = ((centerX - (x - rect.left)) / 25);
+    container.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
   }
+
+  container.addEventListener('mousemove', (e) => {
+    if (!ticking && !isPressed) {
+      window.requestAnimationFrame(() => {
+        updateTransform(e.clientX, e.clientY);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  container.addEventListener('mouseleave', () => {
+    container.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+    isPressed = false;
+  });
+
+  container.addEventListener('mousedown', () => {
+    isPressed = true;
+    container.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(0.88)';
+  });
+
+  container.addEventListener('mouseup', (e) => {
+    isPressed = false;
+    updateTransform(e.clientX, e.clientY, 0.95);
+  });
+}
 </script>
