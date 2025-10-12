@@ -11,7 +11,7 @@ const projectsRaw = await getCollection('posts');
 const projects = await Promise.all(
 	projectsRaw
 		.filter((post: any) => post.data.tags && post.data.tags.includes('project'))
-		.sort((a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+		.sort((a: any, b: any) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
 		.map(async (post: any) => {
 			const { words, minutes } = readingTime(post.body);
 			return {
@@ -38,7 +38,7 @@ const projects = await Promise.all(
 		<p class="text-gray-500">No projects found. Add posts with the <code>project</code> tag to show them here.</p>
 	)}
 	{projects.map(project => (
-		<article class="post-card">
+		<article class="fade-up post-card">
 			<a href={`/posts/${project.slug}`}>
 				<h4 class="font-bold text-lg text-shoukoPurpleDark mb-3 hover:underline">
 					{project.title}

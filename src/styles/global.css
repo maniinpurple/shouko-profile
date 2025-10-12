@@ -154,6 +154,11 @@
   animation-fill-mode: backwards;
 }
 
+.fade-up {
+  animation: fadeUp 0.8s ease-out 0.2s;
+  animation-fill-mode: backwards;
+}
+
 .fade-in {
   animation: fadeIn 0.8s ease-out 0.2s;
   animation-fill-mode: backwards;
