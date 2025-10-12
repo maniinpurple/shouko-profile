@@ -1,0 +1,188 @@
+---
+// ThemeToggle component with smooth animations
+---
+
+<div class="theme-toggle-container">
+  <button 
+    id="theme-toggle"
+    class="theme-toggle-btn"
+    aria-label="Toggle dark mode"
+    title="Switch between light and dark theme"
+  >
+    <!-- Sun icon for light mode -->
+    <svg 
+      class="sun-icon" 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2" 
+      stroke-linecap="round" 
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+
+    <!-- Moon icon for dark mode -->
+    <svg 
+      class="moon-icon" 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      stroke-width="2" 
+      stroke-linecap="round" 
+      stroke-linejoin="round"
+    >
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+
+    <!-- Toggle circle -->
+    <div class="toggle-circle"></div>
+  </button>
+</div>
+
+<style>
+  .theme-toggle-container {
+    @apply fixed top-3 right-4 sm:right-6;
+    z-index: 100;
+  }
+
+  .theme-toggle-btn {
+    @apply relative w-12 h-7 sm:w-14 sm:h-8 bg-gray-300 dark:bg-shoukoDarkBorder rounded-full 
+           border-2 border-gray-400 dark:border-shoukoDarkBorder cursor-pointer
+           transition-all duration-300 ease-in-out
+           hover:scale-105 active:scale-95
+           shadow-lg hover:shadow-xl dark:shadow-2xl;
+  }
+
+  .toggle-circle {
+    @apply absolute top-0.5 left-1 w-5 h-5 sm:w-6 sm:h-6 bg-white dark:bg-shoukoDarkText 
+           rounded-full shadow-md transition-all duration-300 ease-in-out
+           transform translate-x-0 dark:translate-x-5 sm:dark:translate-x-6;
+  }
+
+  .sun-icon,
+  .moon-icon {
+    @apply absolute top-1/2 w-3 h-3 sm:w-4 sm:h-4 transition-all duration-300 ease-in-out;
+    transform: translateY(-50%);
+  }
+
+  .sun-icon {
+    @apply left-1 sm:left-1.5 text-shoukoDarkYellow;
+    opacity: 1;
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  .dark .sun-icon {
+    opacity: 0;
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .moon-icon {
+    @apply right-1 sm:right-1.5 text-shoukoDarkBlue;
+    opacity: 0;
+    transform: translateY(-50%) rotate(-180deg);
+  }
+
+  .dark .moon-icon {
+    opacity: 1;
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  /* Hover effects */
+  .theme-toggle-btn:hover .toggle-circle {
+    @apply shadow-lg;
+  }
+
+  .theme-toggle-btn:hover .sun-icon {
+    @apply text-shoukoDarkOrange;
+  }
+
+  .theme-toggle-btn:hover .moon-icon {
+    @apply text-shoukoDarkCyan;
+  }
+
+  /* Dark mode styles */
+  .dark {
+    color-scheme: dark;
+  }
+
+  .dark .theme-toggle-btn {
+    @apply bg-gray-800 border-gray-600;
+  }
+
+  .dark .toggle-circle {
+    @apply bg-gray-200;
+  }
+</style>
+
+<script>
+  // Theme toggle functionality
+  class ThemeToggle {
+    private button: HTMLButtonElement | null;
+    private html: HTMLElement;
+
+    constructor() {
+      this.button = document.getElementById('theme-toggle') as HTMLButtonElement;
+      this.html = document.documentElement;
+      this.init();
+    }
+
+    init() {
+      // Check for saved theme preference or default to 'light'
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      this.setTheme(savedTheme);
+      
+      // Add click event listener
+      this.button?.addEventListener('click', () => this.toggleTheme());
+      
+      // Listen for system theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+          this.setTheme(e.matches ? 'dark' : 'light');
+        }
+      });
+    }
+
+    toggleTheme() {
+      const currentTheme = this.html.classList.contains('dark') ? 'dark' : 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      this.setTheme(newTheme);
+    }
+
+    setTheme(theme: string) {
+      if (theme === 'dark') {
+        this.html.classList.add('dark');
+      } else {
+        this.html.classList.remove('dark');
+      }
+      localStorage.setItem('theme', theme);
+      
+      // Update button state
+      this.updateButtonState(theme);
+    }
+
+    updateButtonState(theme: string) {
+      if (this.button) {
+        this.button.setAttribute('aria-pressed', (theme === 'dark').toString());
+        this.button.setAttribute('title', 
+          theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+        );
+      }
+    }
+  }
+
+  // Initialize theme toggle when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new ThemeToggle();
+  });
+</script>
