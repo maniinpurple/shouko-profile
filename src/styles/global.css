@@ -12,7 +12,7 @@
 
   body {
     @apply bg-shoukoBg text-gray-800 antialiased;
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    font-family: Georgia, jetbrians-mono,; 
   }
 
   h1, h2, h3, h4 {
