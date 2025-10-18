@@ -1,17 +1,21 @@
 ---
-title: "My Personal Site"
+title: "shouko.site"
 description: "A showcase of my latest project, built with Astro and Tailwind."
 pubDate: 2025-10-12
 tags: ["project", "astro", "tailwind"]
 ---
 
-This is my personal site created to share my posts, projects, and portfolio.  
-It features a clean and modern design built with **Astro** and **Tailwind CSS**.  
+sooo i finally made my own lil site lol
+been wanting to do this for ages but kept putting it off (classic).
+anyway, its built with astro + tailwind cuz i wanted smth clean, fast, and kinda ✨aesthetic✨
 
-Here, you can explore:
-- My **about me** section, detailing my skills, experiences, and interests.
-- **Projects** I’ve been working on, including coding, design, and creative experiments.
-- **Posts** where I share thoughts, tutorials, and updates on my work.
-- **Devices & setup** I use for development, editing, and creative work.
+the sites basically my online corner — got some stuff about me, projects ive been messing around with, random posts, and even a section about my setup (yes i love my keyboard too much).
 
-The site aims to be **fast, responsive, and visually appealing** and outdone myself :>
+honestly just wanted a place to dump my thoughts + show what ive been working on.
+feels good seeing it actually work now lol
+
+kinda proud ngl.
+this ones simple, fast, and very me.
+might add more stuff later… or maybe just vibe for a bit :>
+
+
