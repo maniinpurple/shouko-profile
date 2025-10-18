@@ -1,5 +1,11 @@
 module.exports = {
   content: ['./src/**/*.{astro,html,js,ts,jsx,tsx}'],
+  safelist: [
+    '-translate-x-[54%]',
+    '-translate-x-[52%]',
+    '-translate-x-[58%]',
+    '-translate-x-1/2',
+  ],
   darkMode: 'class',
   theme: {
     extend: {
@@ -25,7 +31,6 @@ module.exports = {
         shoukoDarkCardHover: '#1e1e2e',
         shoukoDarkBorder: '#3B4261', 
         
-
         shoukoDarkText: '#C0CAF5',
         shoukoDarkTextSecondary: '#787C99',
         shoukoDarkTextMuted: '#8B94B6',
@@ -46,5 +51,5 @@ module.exports = {
       }
     }
   },
-      plugins: [require('@tailwindcss/typography')]
+  plugins: [require('@tailwindcss/typography')]
 };
