@@ -1,7 +1,7 @@
 ---
 title: "Arch Linux installation"
 description: "you have no life lol"
-pubDate: 2025-12-10
+pubDate: 2025-11-9
 tags: ["sample", "test"]
 ---
 
