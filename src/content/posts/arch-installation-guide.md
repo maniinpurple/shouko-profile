@@ -8,6 +8,9 @@ tags: ["sample", "test"]
 
 # ARCH LINUX INSTALLATION GUIDE
 
+
+plz turn of dark mode in the top right corner cuz i dont want to fix the theme...
+
 ---
 
 ### 1. Connect to wifi (if using wifi)
